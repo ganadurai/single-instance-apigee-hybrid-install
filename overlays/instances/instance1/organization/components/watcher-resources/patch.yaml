@@ -11,13 +11,19 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-resources:
-- apigee-redis.yaml
-
-components:
-- ./components/redis-resource
-- ./components/redisenvoy-resource
-# - ./components/nodeselector/
-# - ./components/imagepullsecret
-# - ./components/workload-identity
+apiVersion: apigee.cloud.google.com/v1alpha2
+kind: ApigeeOrganization
+metadata:
+  name: "h-apigee-project-3" # kpt-set: ${ORGANIZATION_NAME}
+  namespace: "apigee" # kpt-set: ${APIGEE_NAMESPACE}
+  labels:
+    apigee.cloud.google.com/platform: apigee
+spec:
+  components:
+    watcher:
+      containers:
+      - name: apigee-watcher
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi

@@ -11,13 +11,18 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-resources:
-- apigee-redis.yaml
-
-components:
-- ./components/redis-resource
-- ./components/redisenvoy-resource
-# - ./components/nodeselector/
-# - ./components/imagepullsecret
-# - ./components/workload-identity
+apiVersion: apigee.cloud.google.com/v1alpha1
+kind: ApigeeRedis
+metadata:
+  name: default
+  namespace: "apigee" # kpt-set: ${APIGEE_NAMESPACE}
+  labels:
+    apigee.cloud.google.com/platform: apigee
+spec:
+  components:
+    redisEnvoy:
+      containers:
+      - name: apigee-redis-envoy
+        resources:
+          requests:
+            cpu: 100m

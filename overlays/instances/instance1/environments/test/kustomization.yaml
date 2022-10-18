@@ -15,7 +15,9 @@
 resources:
 - apigee-environment.yaml
 
-# components:
+components:
+- ./components/runtime-resources
+- ./components/udca-resources
 # - ./components/http-proxy
 # - ./components/nodeselector/
 # - ./components/imagepullsecret

@@ -11,13 +11,11 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-resources:
-- apigee-redis.yaml
-
-components:
-- ./components/redis-resource
-- ./components/redisenvoy-resource
-# - ./components/nodeselector/
-# - ./components/imagepullsecret
-# - ./components/workload-identity
+apiVersion: kustomize.config.k8s.io/v1alpha1
+kind: Component
+patches:
+- path: patch.yaml
+  target:
+    group: apigee.cloud.google.com
+    version: v1alpha2
+    kind: ApigeeTelemetry

@@ -17,6 +17,7 @@ resources:
 
 components:
 - ./components/metrics
+- ./components/telemetry-resource
 # - ./components/workload-identity-metrics
 # - ./components/logger
 # - ./components/workload-identity-logger

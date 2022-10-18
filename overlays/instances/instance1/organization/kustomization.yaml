@@ -15,7 +15,11 @@
 resources:
 - apigee-organization.yaml
 
-# components:
+components:
+- ./components/connect-resources
+- ./components/ingressgateway-resources
+- ./components/mart-resources
+- ./components/watcher-resources
 # - ./components/http-proxy
 # - ./components/nodeselector/
 # - ./components/imagepullsecret
