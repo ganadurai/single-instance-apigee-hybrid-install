@@ -22,5 +22,5 @@ spec:
       - name: apigee-cassandra
         resources:
           requests:
-            cpu: 250m
-            memory: 1Gi
+            cpu: "500m" # kpt-set: ${CASSANDRA_CPU}
+            memory: "1Gi" # kpt-set: ${CASSANDRA_MEM}

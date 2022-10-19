@@ -20,10 +20,10 @@ metadata:
     apigee.cloud.google.com/platform: apigee
 spec:
   components:
-    runtime:
+    synchronizer:
       containers:
-      - name: apigee-runtime
+      - name: apigee-synchronizer
         resources:
           requests:
-            cpu: "500m" # kpt-set: ${RUNTIME_CPU}
-            memory: "1Gi" # kpt-set: ${RUNTIME_MEM}
+            cpu: "100m" # kpt-set: ${SYNCHRONIZER_CPU}
+            memory: "512Mi" # kpt-set: ${SYNCHRONIZER_MEM}

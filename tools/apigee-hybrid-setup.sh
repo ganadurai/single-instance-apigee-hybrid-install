@@ -276,7 +276,51 @@ fill_values_in_yamls() {
         GCP_PROJECT_ID="${GCP_PROJECT_ID}" \
         GCP_SERVICE_ACCOUNT_NAME="${GCP_SERVICE_ACCOUNT_NAME}" \
         ORGANIZATION_NAME_UPPER="$(echo "${ORGANIZATION_NAME}" | tr 'a-z' 'A-Z')" \
-        ORGANIZATION_NAME="${ORGANIZATION_NAME}"
+        ORGANIZATION_NAME="${ORGANIZATION_NAME}" \
+        CASSANDRA_CPU="250m" \
+        CASSANDRA_MEM="256Mi" \
+        RUNTIME_CPU="200m" \
+        RUNTIME_MEM="256Mi" \
+        SYNCHRONIZER_CPU="100m" \
+        SYNCHRONIZER_MEM="128Mi" \
+        FLUENTD_CPU="100m" \
+        FLUENTD_MEM="64Mi" \
+        UDCA_CPU="100m" \
+        UDCA_MEM="128Mi" \
+        CONNECT_CPU="50m" \
+        CONNECT_MEM="32Mi" \
+        INGRESS_GTWY_CPU="150m" \
+        INGRESS_GTWY_MEM="32Mi" \
+        MART_CPU="100m" \
+        MART_MEM="128Mi" \
+        WATCHER_CPU="100m" \
+        WATCHER_MEM="32Mi" \
+        METRICSAPP_STACKDRIVER_CPU="150m" \
+        METRICSAPP_STACKDRIVER_MEM="128Mi" \
+        METRICSAPP_PROMETHEUS_CPU="150m" \
+        METRICSAPP_PROMETHEUS_MEM="128Mi" \
+        METRICSPROXY_PROMETHEUS_CPU="125m" \
+        METRICSPROXY_PROMETHEUS_MEM="128Mi" \
+        METRICSPROXY_STACKDRIVER_CPU="125m" \
+        METRICSPROXY_STACKDRIVER_MEM="128Mi" \
+        METRICSPROXY_PROMETHEUS_AGG_CPU="125m" \
+        METRICSPROXY_PROMETHEUS_AGG_MEM="128Mi" \
+        METRICSADPTR_PROMETHEUS_AGG_CPU="50m" \
+        METRICSADPTR_PROMETHEUS_AGG_MEM="64Mi"
+
+        # CASSANDRA_MEM="256Mi" # default value : 1Gi
+        # RUNTIME_MEM="256Mi"   # default value : 1Gi
+        # FLUENTD_MEM="64Mi" # default value : 250Mi
+        # UDCA_MEM="128Mi" # default value : 1Gi
+        # CONNECT_MEM="32Mi"  # default value : 128Mi
+        # INGRESS_GTWY_MEM="32Mi" # default value : 128Mi
+        # MART_MEM="128Mi" # default value : 512Mi
+        # WATCHER_MEM="32Mi" # default value : 128Mi
+        # METRICSAPP_STACKDRIVER_MEM="128Mi" # default value : 1Gi
+        # METRICSAPP_PROMETHEUS_MEM="128Mi" # default value : 1Gi
+        # METRICSPROXY_PROMETHEUS_MEM="128Mi" # default value : 1Gi
+        # METRICSPROXY_STACKDRIVER_MEM="128Mi" # default value : 1Gi
+        # METRICSPROXY_PROMETHEUS_AGG_MEM="128Mi" # default value : 1Gi
 
     # Replace correct namespace in istio discoveryAddress and envoyfilter which
     # cannot be done with kpt.

@@ -25,5 +25,5 @@ spec:
       - name: apigee-connect-agent
         resources:
           requests:
-            cpu: 50m
-            memory: 128Mi
+            cpu: "200m" # kpt-set: ${CONNECT_CPU}
+            memory: "128Mi" # kpt-set: ${CONNECT_MEM}

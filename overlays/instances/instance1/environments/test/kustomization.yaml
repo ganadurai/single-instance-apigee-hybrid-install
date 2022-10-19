@@ -17,6 +17,7 @@ resources:
 
 components:
 - ./components/runtime-resources
+- ./components/synchronizer-resources
 - ./components/udca-resources
 # - ./components/http-proxy
 # - ./components/nodeselector/

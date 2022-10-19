@@ -25,5 +25,5 @@ spec:
       - name: apigee-mart
         resources:
           requests:
-            cpu: 100m
-            memory: 512Mi
+            cpu: "500m" # kpt-set: ${MART_CPU}
+            memory: "512Mi" # kpt-set: ${MART_MEM}
