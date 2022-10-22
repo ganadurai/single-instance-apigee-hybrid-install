@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: envoy-proxy
+  namespace: envoy-ns
   labels:
     app: envoy-proxy
 spec:
@@ -15,10 +16,11 @@ spec:
   selector:
     app: envoy-proxy
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: envoy-proxy
+  namespace: envoy-ns
   labels:
     app: envoy-proxy
 spec:
