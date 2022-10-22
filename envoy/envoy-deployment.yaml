@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: envoy-proxy
+  labels:
+    app: envoy-proxy
+spec:
+  type: NodePort
+  ports:
+  - name: http
+    nodePort: 30080
+    port: 8085
+    targetPort: http
+    protocol: TCP
+  selector:
+    app: envoy-proxy
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: envoy-proxy
+  labels:
+    app: envoy-proxy
+spec:
+  selector:
+    matchLabels:
+      app: envoy-proxy
+  template:
+    metadata:
+      labels:
+        app: envoy-proxy
+    spec:
+      containers:
+      - name: envoy-proxy
+        image: apigee-hybrid/single-instance/envoyproxy:latest
+        imagePullPolicy: Always
+        env:
+        - name: "ENVOY_LB_ALG"
+          value: "LEAST_REQUEST"
+        - name: "SERVICE_NAME"
+          value: "myapp"
+        ports:
+        - name: http
+          containerPort: 8085
+        - name: envoy-admin
+          containerPort: 9901
