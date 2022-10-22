@@ -34,7 +34,7 @@ spec:
     spec:
       containers:
       - name: envoy-proxy
-        image: docker-registry:34401/apigee-hybrid/single-instance/envoy-proxy:latest
+        image: docker-registry:34401/apigee-hybrid/single-instance/envoy-proxy:v1
         imagePullPolicy: IfNotPresent
         env:
         - name: "ENVOY_LB_ALG"
