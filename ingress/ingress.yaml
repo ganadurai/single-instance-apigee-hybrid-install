@@ -1,0 +1,40 @@
+apiVersion: v1
+items:
+- apiVersion: networking.k8s.io/v1
+  kind: Ingress
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{},"name":"apigee-hybrid","namespace":"apigee"},"spec":{"rules":[{"http":{"paths":[{"backend":{"service":{"name":"apigee-ingressgateway-prod-1-h-apigee-projec-d3e5f13","port":{"number":15021}}},"path":"/healthz/ready","pathType":"Prefix"},{"backend":{"service":{"name":"apigee-ingressgateway-prod-1-h-apigee-projec-d3e5f13","port":{"number":443}}},"path":"/","pathType":"Prefix"}]}}],"tls":[{"hosts":["eval.hapigee3.google.com"],"secretName":"apigee-runtime-h-apigee-projec-eval-ca4e00c-tls"}]}}
+    creationTimestamp: "2022-10-22T11:23:20Z"
+    generation: 1
+    name: apigee-hybrid
+    namespace: apigee
+    resourceVersion: "192647"
+    uid: fff4e450-8483-4e1a-a839-59d600231c4e
+  spec:
+    rules:
+    - http:
+        paths:
+        - backend:
+            service:
+              name: apigee-ingressgateway-prod-1-h-apigee-projec-d3e5f13
+              port:
+                number: 15021
+          path: /healthz/ready
+          pathType: Prefix
+        - backend:
+            service:
+              name: apigee-ingressgateway-prod-1-h-apigee-projec-d3e5f13
+              port:
+                number: 443
+          path: /
+          pathType: Prefix
+    tls:
+    - hosts:
+      - eval.hapigee3.google.com
+      # This secret has to be parametrized 
+      secretName: apigee-runtime-h-apigee-projec-eval-ca4e00c-tls
+kind: List
+metadata:
+  resourceVersion: ""

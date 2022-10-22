@@ -1,5 +1,3 @@
-docker build -f "$ENVOY_HOME/Dockerfile-aekitctl" \
-  -t apigee/devrel-envoyproxy:latest "$ENVOY_HOME"
 
 kubectl create namespace envoy-ns
 
