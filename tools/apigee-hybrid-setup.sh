@@ -308,20 +308,6 @@ fill_values_in_yamls() {
         METRICSADPTR_PROMETHEUS_AGG_CPU="50m" \
         METRICSADPTR_PROMETHEUS_AGG_MEM="64Mi"
 
-        # CASSANDRA_MEM="256Mi" # default value : 1Gi
-        # RUNTIME_MEM="256Mi"   # default value : 1Gi
-        # FLUENTD_MEM="64Mi" # default value : 250Mi
-        # UDCA_MEM="128Mi" # default value : 1Gi
-        # CONNECT_MEM="32Mi"  # default value : 128Mi
-        # INGRESS_GTWY_MEM="32Mi" # default value : 128Mi
-        # MART_MEM="128Mi" # default value : 512Mi
-        # WATCHER_MEM="32Mi" # default value : 128Mi
-        # METRICSAPP_STACKDRIVER_MEM="128Mi" # default value : 1Gi
-        # METRICSAPP_PROMETHEUS_MEM="128Mi" # default value : 1Gi
-        # METRICSPROXY_PROMETHEUS_MEM="128Mi" # default value : 1Gi
-        # METRICSPROXY_STACKDRIVER_MEM="128Mi" # default value : 1Gi
-        # METRICSPROXY_PROMETHEUS_AGG_MEM="128Mi" # default value : 1Gi
-
     # Replace correct namespace in istio discoveryAddress and envoyfilter which
     # cannot be done with kpt.
     sed -i".bak" -E -e "s/(discoveryAddress: apigee-ingressgateway-manager\.).*(\.svc:15012)/\1${APIGEE_NAMESPACE}\2/" "${ROOT_DIR}/overlays/controllers/apigee-ingressgateway-manager/apigee-istio-mesh-config.yaml" && rm "$_.bak"
