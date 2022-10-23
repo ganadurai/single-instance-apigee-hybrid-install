@@ -37,10 +37,10 @@ static_resources:
         - endpoint:
             address:
               socket_address:
-                address: "apigee-runtime-h-apigee-projec-eval-ca4e00c.apigee.svc.cluster.local"
+                address: "${SERVICE_NAME}.${APIGEE_NAMESPACE}.svc.cluster.local"
                 port_value: 8443
     transport_socket:
       name: envoy.transport_sockets.tls
       typed_config:
         "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext
-        sni: "apigee-runtime-h-apigee-projec-eval-ca4e00c.apigee.svc.cluster.local"
+        sni: "${SERVICE_NAME}.${APIGEE_NAMESPACE}.svc.cluster.local"
